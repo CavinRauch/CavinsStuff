@@ -4,49 +4,26 @@
         <name>CavinsStuff</name>
     </assembly>
     <members>
-        <member name="T:CavinsStuff.Helpers.ClientHelper">
+        <member name="T:CavinsStuff.Extentions.DatatablesExtentions">
             <summary>
-            Used as a simplifer for using http client
+            Contains useful extentions with using the datatables plugin.
             </summary>
         </member>
-        <member name="M:CavinsStuff.Helpers.ClientHelper.Get``1(System.String)">
+        <member name="M:CavinsStuff.Extentions.DatatablesExtentions.OrderRecords``1(System.Linq.IQueryable{``0},CavinsStuff.Extentions.Models.DataTableParameters)">
             <summary>
-            Gets a response from the URL provided and deserializes the results to the specified type.
+            Handles the order of the items from the datatable parameters sent in the ajax post.
             </summary>
-            <typeparam name="T">Type to deserialize results to.</typeparam>
-            <param name="url">URL appended to the base to get results</param>
-            <returns></returns>
+            <param name="items">Items displayed in the datatable.</param>
+            <param name="datatableParameters">Datatable parameters set from ajax post.</param>
+            <returns>Ordered items</returns>
         </member>
-        <member name="M:CavinsStuff.Helpers.ClientHelper.PostToUrl``1(System.String)">
+        <member name="M:CavinsStuff.Extentions.DatatablesExtentions.SearchRecords``1(System.Linq.IQueryable{``0},CavinsStuff.Extentions.Models.DataTableParameters)">
             <summary>
-            Posts to a url with no body
+            Searchs the items using the datatable parameters sent in the ajax post.
             </summary>
-            <typeparam name="T">Expected return Type</typeparam>
-            <param name="url">Url to post to.</param>
-        </member>
-        <member name="M:CavinsStuff.Helpers.ClientHelper.PostJson``1(System.String,System.Object)">
-            <summary>
-            Posts to a url with a Json a body
-            </summary>
-            <typeparam name="T">Expected return Type</typeparam>
-            <param name="url">Url to post to</param>
-            <param name="requestObjectModel">Request Object Model to be converted into the Json body.</param>
-            <returns>Type of T</returns>
-        </member>
-        <member name="M:CavinsStuff.Helpers.ClientHelper.BuildUrl(System.String,System.String[])">
-            <summary>
-            Appends string objects to url. Ignores null values
-            </summary>
-            <param name="url">Url to append values to.</param>
-            <param name="objs">String expected as Name=Value. Example: firstname=sam</param>
-            <returns></returns>
-        </member>
-        <member name="M:CavinsStuff.Helpers.ClientHelper.TryAddWithoutValidation(System.String,System.String)">
-            <summary>
-            Adds the Header to the underling HttpClient
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
+            <param name="items">Items displayed in the datatable.</param>
+            <param name="datatableParameters">Datatable parameters set from ajax post.</param>
+            <returns>Filtered items</returns>
         </member>
         <member name="T:CavinsStuff.Extentions.ClientHelperExtenstions">
             <summary>
@@ -158,6 +135,50 @@
             Tries to parse string to Guid
             </summary>
             <exception cref="T:System.InvalidCastException">Failed to cast string</exception>
+        </member>
+        <member name="T:CavinsStuff.Helpers.ClientHelper">
+            <summary>
+            Used as a simplifer for using http client
+            </summary>
+        </member>
+        <member name="M:CavinsStuff.Helpers.ClientHelper.Get``1(System.String)">
+            <summary>
+            Gets a response from the URL provided and deserializes the results to the specified type.
+            </summary>
+            <typeparam name="T">Type to deserialize results to.</typeparam>
+            <param name="url">URL appended to the base to get results</param>
+            <returns></returns>
+        </member>
+        <member name="M:CavinsStuff.Helpers.ClientHelper.PostToUrl``1(System.String)">
+            <summary>
+            Posts to a url with no body
+            </summary>
+            <typeparam name="T">Expected return Type</typeparam>
+            <param name="url">Url to post to.</param>
+        </member>
+        <member name="M:CavinsStuff.Helpers.ClientHelper.PostJson``1(System.String,System.Object)">
+            <summary>
+            Posts to a url with a Json a body
+            </summary>
+            <typeparam name="T">Expected return Type</typeparam>
+            <param name="url">Url to post to</param>
+            <param name="requestObjectModel">Request Object Model to be converted into the Json body.</param>
+            <returns>Type of T</returns>
+        </member>
+        <member name="M:CavinsStuff.Helpers.ClientHelper.BuildUrl(System.String,System.String[])">
+            <summary>
+            Appends string objects to url. Ignores null values
+            </summary>
+            <param name="url">Url to append values to.</param>
+            <param name="urlParameters">String expected as Name=Value. Example: firstname=sam</param>
+            <returns></returns>
+        </member>
+        <member name="M:CavinsStuff.Helpers.ClientHelper.TryAddWithoutValidation(System.String,System.String)">
+            <summary>
+            Adds the Header to the underling HttpClient
+            </summary>
+            <param name="name">Name of the header value</param>
+            <param name="value">Value of the header</param>
         </member>
     </members>
 </doc>

@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions\DatatablesExtentions.cs" />
+    <Compile Include="Extentions\Models\DataTableParameters.cs" />
+    <Compile Include="Extentions\Models\TableParameters.cs" />
     <Compile Include="Helpers\ClientHelper.cs" />
     <Compile Include="Extentions\ClientHelperExtentions.cs" />
     <Compile Include="Extentions\CollectionExtentions.cs" />
@@ -61,8 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CavinsStuff.nuspec" />
+    <None Include="CavinsStuff.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".deploy\steps.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
