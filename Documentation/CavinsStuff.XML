@@ -38,15 +38,15 @@
             Appends string objects to url. Ignores null values
             </summary>
             <param name="url">Url to append values to.</param>
-            <param name="objs">String expected as Name=Value. Example: firstname=sam</param>
+            <param name="urlParameters">String expected as Name=Value. Example: firstname=sam</param>
             <returns></returns>
         </member>
         <member name="M:CavinsStuff.Helpers.ClientHelper.TryAddWithoutValidation(System.String,System.String)">
             <summary>
             Adds the Header to the underling HttpClient
             </summary>
-            <param name="name"></param>
-            <param name="value"></param>
+            <param name="name">Name of the header value</param>
+            <param name="value">Value of the header</param>
         </member>
         <member name="T:CavinsStuff.Extentions.ClientHelperExtenstions">
             <summary>
@@ -75,25 +75,54 @@
             <param name="defaultFromDate">Defaults to DateTime.MinValue if null</param>
             <param name="defaultToDate">Defaults to DateTime.MaxValue if null</param>
         </member>
-        <member name="M:CavinsStuff.Extentions.DateExtentions.FirstDayOfMonth(System.DateTime)">
-            <summary>
-            Returns the first day of the month.
-            </summary>
-        </member>
         <member name="M:CavinsStuff.Extentions.DateExtentions.FirstDayOfYear(System.DateTime)">
             <summary>
-            Returns the first day of the year.
+            First day of given year
             </summary>
-        </member>
-        <member name="M:CavinsStuff.Extentions.DateExtentions.LastDayOfMonth(System.DateTime)">
-            <summary>
-            Returns the last day of the month.
-            </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-01-01 13:12:32PM
+            </example>
         </member>
         <member name="M:CavinsStuff.Extentions.DateExtentions.LastDayOfYear(System.DateTime)">
             <summary>
-            Returns the last day of the year.
+            Last day of given year
             </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-12-31 13:12:32PM
+            </example>
+        </member>
+        <member name="M:CavinsStuff.Extentions.DateExtentions.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            First day of given month
+            </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-02-01 13:12:32PM
+            </example>
+        </member>
+        <member name="M:CavinsStuff.Extentions.DateExtentions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Last day of given month. 
+            NOTE: Includes Logic for leap years
+            </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-02-28 13:12:32PM
+            </example>
+        </member>
+        <member name="M:CavinsStuff.Extentions.DateExtentions.StartOfDay(System.DateTime)">
+            <summary>
+            Start of the day
+            </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-02-21 12:00:00AM 
+            </example>
+        </member>
+        <member name="M:CavinsStuff.Extentions.DateExtentions.EndOfDay(System.DateTime)">
+            <summary>
+            End of the day
+            </summary>
+            <example>
+            2017-02-21 13:12:32PM => 2017-02-21 11:59:59PM  
+            </example>
         </member>
         <member name="T:CavinsStuff.Extentions.IntExtentions">
             <summary>
