@@ -8,14 +8,20 @@ using System.Reflection;
 using System.Threading;
 
 namespace CavinsStuff.Extentions
-{
+{ 
 	/// <summary>
 	/// Contains all collection extentions.
 	/// </summary>
 	public static class CollectionExtentions
 	{
-		public static IEnumerable<T> DataTableToList<T>(this DataTable table) where T : class, new()
+		/// <summary>
+		/// Convert the contents of a <see cref="DataTable"/> to an IEnumerable Object.
+		/// </summary>
+		/// <typeparam name="T">Type to cast <see cref="DataTable"/>'s rows to</typeparam>
+		public static IEnumerable<T> ToEnumerable<T>(this DataTable table) where T : class, new()
 		{
+			DataTable a = new DataTable();
+
 			CultureInfo originalCulture = Thread.CurrentThread.CurrentCulture;
 			//Change Thread culture to standard
 			Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
@@ -80,6 +86,28 @@ namespace CavinsStuff.Extentions
 				//Reset back to original
 				Thread.CurrentThread.CurrentCulture = originalCulture;
 			}
+		}
+		
+		/// <summary>
+		/// Creates an IEnumerable containing this object
+		/// </summary>
+		/// <typeparam name="T">Type of IEnumerable</typeparam>
+		/// <param name="obj">Object to add to the IEnumerable</param>
+		/// <returns></returns>
+		public static IEnumerable<T> ToEnumerable<T>(this T obj)
+		{
+			return new T[] { obj };	
+		}
+
+		/// <summary>
+		/// Creates an ICollection containing this object
+		/// </summary>
+		/// <typeparam name="T">Type of ICollection</typeparam>
+		/// <param name="obj">Object to add to the IEnumerable</param>
+		/// <returns></returns>
+		public static ICollection<T> ToCollection<T>(this T obj)
+		{
+			return new T[] { obj };
 		}
 	}
 }

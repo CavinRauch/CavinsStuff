@@ -63,6 +63,22 @@
             Contains all collection extentions.
             </summary>
         </member>
+        <member name="M:CavinsStuff.Extentions.CollectionExtentions.ToEnumerable``1(``0)">
+            <summary>
+            Creates an IEnumerable containing this object
+            </summary>
+            <typeparam name="T">Type of IEnumerable</typeparam>
+            <param name="obj">Object to add to the IEnumerable</param>
+            <returns></returns>
+        </member>
+        <member name="M:CavinsStuff.Extentions.CollectionExtentions.ToCollection``1(``0)">
+            <summary>
+            Creates an ICollection containing this object
+            </summary>
+            <typeparam name="T">Type of ICollection</typeparam>
+            <param name="obj">Object to add to the IEnumerable</param>
+            <returns></returns>
+        </member>
         <member name="T:CavinsStuff.Extentions.DateExtentions">
             <summary>
             Contains all date extentions.
