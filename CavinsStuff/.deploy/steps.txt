@@ -1,0 +1,3 @@
+﻿1. run:		nuget pack
+2. update:	release notes
+2. run:		nuget push [Results of Setp 1].nupkg -Source https://www.nuget.org/api/v2/package
