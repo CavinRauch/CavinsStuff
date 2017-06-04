@@ -2,3 +2,7 @@
 /CavinsStuff/obj
 /.vs
 /CavinsStuff/nuget.exe
+/CavinsStuff.Tests/bin
+/CavinsStuff.Tests/obj
+/CavinsStuffUnitTests/obj
+/CavinsStuffUnitTests/bin

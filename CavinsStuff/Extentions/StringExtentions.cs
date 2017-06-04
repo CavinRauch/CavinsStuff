@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CavinsStuff.Extentions
+namespace CavinsStuff.Extentionsm
 {
 	/// <summary>
 	/// Contains all string extentions.
@@ -21,7 +21,7 @@ namespace CavinsStuff.Extentions
 				//Set valid empty string as string could be null
 				intialString = string.Empty;
 			}
-			else if (intialString.Length > length)
+			else if (intialString.Length > length && length > 0)
 			{
 				//Make the string no longer than the max length
 				intialString = intialString.Substring(intialString.Length - length, length);
@@ -31,7 +31,6 @@ namespace CavinsStuff.Extentions
 			return intialString;
 		}
 
-
 		/// <summary>
 		/// Returns the base64encoded text
 		/// </summary>
@@ -40,25 +39,14 @@ namespace CavinsStuff.Extentions
 		/// <returns></returns>
 		public static string ToBase64(this System.Text.Encoding encoding, string text)
 		{
-			if (text == null)
-			{
-				return null;
-			}
+			if (text == null) throw new ArgumentNullException(nameof(text));
 
 			byte[] textAsBytes = encoding.GetBytes(text);
 			return Convert.ToBase64String(textAsBytes);
 		}
 
 		/// <summary>
-		/// Checks whether the string is null or a whitespace  
-		/// </summary>
-		public static bool IsNullOrWhitespace(this string text)
-		{
-			return string.IsNullOrWhiteSpace(text);
-		}
-
-		/// <summary>
-		/// Checks whether the string is null or equal to String.Empty  
+		/// Checks whether the string is null, string.Empty or whitespace 
 		/// </summary>
 		public static bool IsNullOrEmpty(this string text)
 		{
