@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CavinsStuff.Extentions
 {
@@ -80,5 +81,61 @@ namespace CavinsStuff.Extentions
 		/// 2017-02-21 13:12:32PM => 2017-02-21 11:59:59PM  
 		/// </example>
 		public static DateTime EndOfDay(this DateTime date) => new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
+
+		/// <summary>
+		/// Checks if the date matches the day of the month
+		/// </summary>
+		/// <param name="date">Date</param>
+		/// <param name="dayOfMonth">Day of the month as an <see cref="int"/></param>
+		public static bool IsDayOfMonth(this DateTime date, int dayOfMonth)
+		{
+			return (date.Day == dayOfMonth);
+		}
+
+		/// <summary>
+		/// Checks if the date matches the day of the month
+		/// </summary>
+		/// <param name="date">Date</param>
+		/// <param name="dayOfMonth">Day of the month as an <see cref="int"/></param>
+		public static bool IsDayOfMonth(this DateTime date, params int[] dayOfMonth)
+		{
+			return dayOfMonth.Contains(date.Day);
+		}
+
+		/// <summary>
+		/// Gets the amount of days between this date and the end Date
+		/// </summary>
+		/// <param name="date">Starting date</param>
+		/// <param name="endDate">End date</param>
+		public static int DaysBetween(this DateTime date, DateTime endDate)
+		{
+			var smallest = date < endDate ? date : endDate;
+			var largest = date > endDate ? date : endDate;
+			return (largest - smallest).Days;
+		}
+
+		/// <summary>
+		/// Gets the amount of Months between this date and the end Date
+		/// </summary>
+		/// <param name="date">Starting date</param>
+		/// <param name="endDate">End date</param>
+		public static int MonthsBetween(this DateTime date, DateTime endDate)
+		{
+			var smallest = date < endDate ? date : endDate;
+			var largest = date > endDate ? date : endDate;
+			return (((largest.Year - smallest.Year) * 12) + largest.Month - smallest.Month);
+		}
+
+		/// <summary>
+		/// Gets the amount of years between this date and the end Date
+		/// </summary>
+		/// <param name="date">Starting date</param>
+		/// <param name="endDate">End date</param>
+		public static int YearsBetween(this DateTime date, DateTime endDate)
+		{
+			var smallest = date < endDate ? date : endDate;
+			var largest = date > endDate ? date : endDate;
+			return (largest.Year - smallest.Year);
+		}
 	}
 }

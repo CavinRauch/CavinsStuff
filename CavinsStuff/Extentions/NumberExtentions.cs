@@ -1,9 +1,12 @@
-﻿namespace CavinsStuff.Extentions
+﻿using System;
+using System.Linq;
+
+namespace CavinsStuff.Extentions
 {
 	/// <summary>
 	/// Contains all int extentions.
 	/// </summary>
-	public class IntExtentions
+	public static class NumberExtentions
 	{
 		/// <summary>
 		/// Takes a value from a range and maps it to a value with the same postition in a new range.
@@ -25,5 +28,40 @@
 			double scale = (double)(newRangeEnd - newRangeStart) / (originalRangeEnd - originalRangeStart);
 			return (int)(newRangeStart + ((value - originalRangeStart) * scale));
 		}
+
+		/// <summary>
+		/// Converts the decimal to a currency string. 
+		/// eg:12345.234  = R 12 345.23
+		/// </summary>
+		/// <param name="value">Value to convert</param>
+		/// <param name="symbol">Symbol to prepend</param>
+		/// <returns></returns>
+		public static String ToCurrency(this decimal value, string symbol = "R", bool prependSymbol = true)
+		{
+			var item = Math.Round(value, 2);
+
+			var splitup = item.ToString().Split('.');
+
+			var result = "";
+
+			var count = 0;
+			foreach (var character in splitup.FirstOrDefault().Reverse())
+			{
+				if (count++ % 3 == 0)
+					result += " ";
+
+				result += character;
+			}
+			var chars = result.Reverse().ToArray();
+			result = (new string(chars)).Trim();
+
+			if (splitup.Count() > 1)
+			{
+				result += "." + splitup.Last();
+			}
+
+			return prependSymbol ? $"{symbol} {result}" : $"{result} {symbol}";
+		}
+
 	}
 }

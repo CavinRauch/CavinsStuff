@@ -59,7 +59,7 @@
     <Compile Include="Extentions\ClientHelperExtentions.cs" />
     <Compile Include="Extentions\CollectionExtentions.cs" />
     <Compile Include="Extentions\DateExtentions.cs" />
-    <Compile Include="Extentions\IntExtentions.cs" />
+    <Compile Include="Extentions\NumberExtentions.cs" />
     <Compile Include="Extentions\StringExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
