@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CavinsStuff.Extentionsm
+namespace CavinsStuff.Extentions
 {
 	/// <summary>
 	/// Contains all string extentions.

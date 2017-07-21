@@ -189,6 +189,52 @@
             <param name="symbol">Symbol to prepend</param>
             <returns></returns>
         </member>
+        <member name="T:CavinsStuff.Extentions.StringExtentions">
+            <summary>
+            Contains all string extentions.
+            </summary>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.Right(System.String,System.Int32)">
+            <summary>
+            Returns the specified length of characters starting from the right
+            </summary>
+            <param name="intialString"></param>
+            <param name="length">Length of characters to return</param>
+            <returns></returns>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.ToBase64(System.Text.Encoding,System.String)">
+            <summary>
+            Returns the base64encoded text
+            </summary>
+            <param name="encoding"></param>
+            <param name="text">Text to be encoded</param>
+            <returns></returns>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.IsNullOrEmpty(System.String)">
+            <summary>
+            Checks whether the string is null, string.Empty or whitespace 
+            </summary>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.IsGuid(System.String)">
+            <summary>
+            Checks whether the string can parse into a guid
+            </summary>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.ToGuid(System.String)">
+            <summary>
+            Tries to parse string to Guid
+            </summary>
+            <exception cref="T:System.InvalidCastException">Failed to cast string</exception>
+        </member>
+        <member name="M:CavinsStuff.Extentions.StringExtentions.ReplaceCI(System.String,System.String,System.String)">
+            <summary>
+            Performs a super fast case incensitive string replace
+            </summary>
+            <param name="original">The original string</param>
+            <param name="pattern">The string to search for</param>
+            <param name="replacement">The string that will replace the search string</param>
+            <returns>The original text with all replacements done</returns>
+        </member>
         <member name="T:CavinsStuff.Helpers.ClientHelper">
             <summary>
             Used as a simplifer for using http client
@@ -232,52 +278,6 @@
             </summary>
             <param name="name">Name of the header value</param>
             <param name="value">Value of the header</param>
-        </member>
-        <member name="T:CavinsStuff.Extentionsm.StringExtentions">
-            <summary>
-            Contains all string extentions.
-            </summary>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.Right(System.String,System.Int32)">
-            <summary>
-            Returns the specified length of characters starting from the right
-            </summary>
-            <param name="intialString"></param>
-            <param name="length">Length of characters to return</param>
-            <returns></returns>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.ToBase64(System.Text.Encoding,System.String)">
-            <summary>
-            Returns the base64encoded text
-            </summary>
-            <param name="encoding"></param>
-            <param name="text">Text to be encoded</param>
-            <returns></returns>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.IsNullOrEmpty(System.String)">
-            <summary>
-            Checks whether the string is null, string.Empty or whitespace 
-            </summary>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.IsGuid(System.String)">
-            <summary>
-            Checks whether the string can parse into a guid
-            </summary>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.ToGuid(System.String)">
-            <summary>
-            Tries to parse string to Guid
-            </summary>
-            <exception cref="T:System.InvalidCastException">Failed to cast string</exception>
-        </member>
-        <member name="M:CavinsStuff.Extentionsm.StringExtentions.ReplaceCI(System.String,System.String,System.String)">
-            <summary>
-            Performs a super fast case incensitive string replace
-            </summary>
-            <param name="original">The original string</param>
-            <param name="pattern">The string to search for</param>
-            <param name="replacement">The string that will replace the search string</param>
-            <returns>The original text with all replacements done</returns>
         </member>
     </members>
 </doc>

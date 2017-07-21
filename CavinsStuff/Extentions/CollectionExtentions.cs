@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading;
 
 namespace CavinsStuff.Extentions
-{ 
+{
 	/// <summary>
 	/// Contains all collection extentions.
 	/// </summary>
@@ -87,7 +87,7 @@ namespace CavinsStuff.Extentions
 				Thread.CurrentThread.CurrentCulture = originalCulture;
 			}
 		}
-		
+
 		/// <summary>
 		/// Creates an IEnumerable containing this object
 		/// </summary>
@@ -96,7 +96,7 @@ namespace CavinsStuff.Extentions
 		/// <returns></returns>
 		public static IEnumerable<T> ToEnumerable<T>(this T obj)
 		{
-			return new T[] { obj };	
+			return new T[] { obj };
 		}
 
 		/// <summary>
